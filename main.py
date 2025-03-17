@@ -48,9 +48,9 @@ async def main(page: ft.Page):
         on_state_changed=handle_state_change,
     )
     page.overlay.append(audio_rec)
-    await page.update_async()
+    page.update()
 
-    await page.add_async(
+    page.add(
         ft.ElevatedButton("Start Audio Recorder", on_click=handle_start_recording),
         ft.ElevatedButton("Stop Audio Recorder", on_click=handle_stop_recording),
         ft.ElevatedButton("List Devices", on_click=handle_list_devices),
